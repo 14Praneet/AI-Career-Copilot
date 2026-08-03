@@ -69,7 +69,7 @@ graph TD
     end
     
     subgraph Backend ["Application Tier (FastAPI)"]
-        API["FastAPI Web Server"]
+        ApiServer["FastAPI Web Server"]
         Parser["Resume Parser Service (pdfplumber)"]
         ATS["ATS Matcher Engine"]
         AIOrc["OpenAI Client Service"]
@@ -84,11 +84,11 @@ graph TD
     end
 
     User -->|HTTPS| SPA
-    SPA -->|REST API (Axios)| API
-    API -->|Read/Write Documents| MongoDB
-    API -->|Extract PDF Text| Parser
-    API -->|Calculate Scores| ATS
-    API -->|Request Generations| AIOrc
+    SPA -->|REST API (Axios)| ApiServer
+    ApiServer -->|Read/Write Documents| MongoDB
+    ApiServer -->|Extract PDF Text| Parser
+    ApiServer -->|Calculate Scores| ATS
+    ApiServer -->|Request Generations| AIOrc
     AIOrc -->|Asynchronous SDK Calls| OpenAI
 ```
 
