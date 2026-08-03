@@ -84,7 +84,7 @@ graph TD
     end
 
     User -->|HTTPS| SPA
-    SPA -->|REST API (Axios)| ApiServer
+    SPA -->|REST API via Axios| ApiServer
     ApiServer -->|Read/Write Documents| MongoDB
     ApiServer -->|Extract PDF Text| Parser
     ApiServer -->|Calculate Scores| ATS
